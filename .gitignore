@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+# *.so
+.Python
+# *.pth
+*.json.gz
+*.o
+*.d
+
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock\
+tools/target/
+
+# Project specific
+/input/
+/output/
+/models/
+# *.json
+# *.txt
+# *.html
+models
+
+# Libraries
+# libai.so
+# libanalysis.so
+# libhoujuu.so
+# libriichi_analysis.so
+# libriichi.so
+# libriichi2.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# OS specific
+.DS_Store
+Thumbs.db

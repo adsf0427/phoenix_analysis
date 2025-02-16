@@ -1,0 +1,49 @@
+player (abs): 0
+oya (rel): 3
+kyoku: E4-2
+turn: 10
+jikaze: S
+score (rel): [21000, 4000, 6200, 68800]
+tehai: 789m 123p 99s
+fuuro: [[2m, 3m, 1m], [E, E, E]]
+ankan: []
+tehai len: 2
+shanten: 0 (actual: -1)
+furiten: false
+waits: [7m]
+dora indicators: [1m]
+doras owned: [1, 0, 0, 0]
+doras seen: 2
+action candidates: ActionCandidate {
+    can_discard: true,
+    can_chi_low: false,
+    can_chi_mid: false,
+    can_chi_high: false,
+    can_pon: false,
+    can_daiminkan: false,
+    can_kakan: false,
+    can_ankan: false,
+    can_riichi: false,
+    can_tsumo_agari: true,
+    can_ron_agari: false,
+    can_ryukyoku: false,
+    target_actor: 0,
+}
+last self tsumo: Some(7m)
+last kawa tile: Some(4p)
+tiles left: 29
+kawa:
+ 0. -   -       -       S
+ 1. 5m  9m      S       W
+ 2. 4s  F       9m      N
+ 3. P   C       F       2p
+ 4. 4s^ W       C       7p
+ 5. W   2p      N^      8s^
+ 6. 1p  6m      -       (6m6m+6m)1m
+ 7. (2m3m+1m)5pr        8m      E^      -
+ 8. (EE+E)7p    8p      6s      2s
+ 9. 7s^ 8p      6m      1p^
+10. 1m^ 5m^     P^      3s^
+11. 5p^ 3p^     C^      4p^
+
+'improveWayCount': 66, 'avgImproveWaitsCount': 13.959016393442623, 'avgAgariRate': 0, 'furitenRate': 0, 'yakuTypes': '[立直]', 'isPartWait': False, 'doraCount': 0, 'damaPoint': 0, 'riichiPoint': 0, 'mixedRoundPoint': 866.006088884038}, 'discardHonorTileRisk': 0, 'leftDrawTilesCount': 0, 'openTiles': None}], 'shanten': 2
