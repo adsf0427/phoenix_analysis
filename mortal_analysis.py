@@ -2,7 +2,7 @@ import argparse
 import numpy as np
 import torch
 import torch.nn.functional as F
-import json
+import json, gzip, requests
 from libriichi.state import PlayerState
 from libriichi.mjai import Bot
 from common import *
@@ -252,6 +252,18 @@ def parse_arguments():
     # parser.add_argument("-o", "--output_folder", help="Path to the output folder", default='output')
     return parser.parse_args()
 
+def get_reactoiins(mjai, player_id):
+    post_data = {'data': mjai.split('\n')}
+    data = json.dumps(post_data, separators=(',', ':'))
+    compressed_data = gzip.compress(data.encode('utf-8'))
+
+    # @app.route("/engine_4p/<string:engine_name>/<string:player_id>", methods=['GET'])
+    result = requests.get('http://122.51.149.46:9875/engine_4p' + '/0/' + str(player_id), data=compressed_data)
+
+    reactions = json.loads(gzip.decompress(result.content))['data']
+    yield from reactions
+    # return reactions
+
 def main():
     try:
         player_id = int(sys.argv[-1])
@@ -287,6 +299,15 @@ def main():
         )    
     bot = Bot(engine, player_id)    
     mortal_review = True
+    
+    online = False
+    
+    if online:
+        with open('input/mjai.json', 'r') as f:
+            mjai = f.read()
+        reactions = get_reactoiins(mjai, player_id)
+    else :
+        reactions = iter([])
 
   
     ako_state = init_houjuu(player_id)
@@ -294,7 +315,10 @@ def main():
     # agari_rate = agari.cal_agari_rate(player_id, lines)
     for line_id, line in enumerate(filtered_trimmed_lines(sys.stdin)):
         result = player_state.update(line)
-        reaction = bot.react(line)
+        if online:
+            reaction = next(reactions)
+        else:
+            reaction = bot.react(line)
         # print(reaction, flush=True)
         # continue
         
